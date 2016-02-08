@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/07 15:11:06 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/08 11:23:50 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ int				ft_count_total(t_files *files);
 int				ft_mn(char *month);
 int				ft_dn(char *day);
 int				ft_timecomp(char *time1, char *time2);
+int				ft_revtimecomp(char *time1, char *time2);
 char			*ft_get_time(char *file);
 
 #endif

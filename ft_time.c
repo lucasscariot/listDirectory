@@ -6,11 +6,29 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:12:12 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/07 15:47:02 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/08 11:22:54 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+int     ft_revtimecomp(char *file1, char *file2)
+{
+	char    **t1;
+	char    **t2;
+
+	t1 = ft_strsplit(ft_get_time(file1), ' ');
+	t2 = ft_strsplit(ft_get_time(file2), ' ');
+	if (ft_atoi(t1[4]) > ft_atoi(t2[4]))
+		return (1);
+	if (ft_mn(t1[1]) > ft_mn(t2[1]))
+		return (1);
+	if (ft_atoi(t1[2]) > ft_atoi(t2[2]))
+		return (1);
+	return (0);
+	ft_free_tab(t1);
+	ft_free_tab(t2);
+}
 
 int		ft_timecomp(char *file1, char *file2)
 {
@@ -21,13 +39,13 @@ int		ft_timecomp(char *file1, char *file2)
 	t2 = ft_strsplit(ft_get_time(file2), ' ');
 	if (ft_atoi(t1[4]) < ft_atoi(t2[4]))
 		return (1);
-	if (ft_mn(t1[2]) < ft_mn(t2[2]))
+	if (ft_mn(t1[1]) < ft_mn(t2[1]))
 		return (1);
-	//if (ft_atoi(t1[3]) < ft_atoi(t2[3]))
-	//	return (1);
-	if (ft_dn(t1[0]) < ft_dn(t2[0]))
+	if (ft_atoi(t1[2]) < ft_atoi(t2[2]))
 		return (1);
 	return (0);
+	ft_free_tab(t1);
+	ft_free_tab(t2);
 }
 
 int     ft_mn(char *month)

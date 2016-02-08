@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/07 15:49:36 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/08 13:01:30 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,16 @@ t_files		*ft_readdir(t_args args)
 	DIR				*folder;
 	struct dirent	*file;
 	t_files			*files;
+	char			*tmp;
 
 	files = NULL;
 	folder = opendir(args.link[args.i]);
 	if (!folder)
 		return (NULL);
+	tmp = ft_strjoin(args.link[args.i], "/");
 	while (((file = readdir(folder)) != NULL))
 	{
+		tmp = ft_strcat(tmp, files->name);
 		if (file->d_name[0] != '.' || args.a)
 		{
 			if (args.l == 1)
@@ -73,6 +76,7 @@ t_files		*ft_readdirr(char *filename, t_args args)
 	DIR				*folder;
 	struct dirent	*file;
 	t_files			*files;
+	char			*tmp;
 
 	files = NULL;
 	folder = opendir(filename);
@@ -80,6 +84,7 @@ t_files		*ft_readdirr(char *filename, t_args args)
 		return (NULL);
 	while (((file = readdir(folder)) != NULL))
 	{
+		//tmp = ft_strjoin(args.link[args.i], files->name);
 		if (file->d_name[0] != '.' || args.a)
 		{
 			if (args.l == 1)
