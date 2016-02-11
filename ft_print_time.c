@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 14:10:31 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 08:27:29 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 18:38:18 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ int		ft_dy(char *month, char *hour, char *year)
 	now = ft_strsplit(ctime(&local), ' ');
 	a = ft_mn(now[1]);
 	b = -1 * ft_mn(month) + (ft_atoi(now[4]) - ft_atoi(year)) * 12;
+	ft_free_tab(now);
 	if (b + a >= 6)
-	{
-		ft_putendl("YEAR");
 		return (1);
-	}
 	return (0);
 }
 
