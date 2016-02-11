@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 12:05:09 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/04 19:37:27 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 07:47:50 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ void	ft_swap_cpy(t_files *dest, t_files *src, int l)
 		dest->user = ft_strdup(src->user);
 		dest->group = ft_strdup(src->group);
 		dest->size = ft_strdup(src->size);
-		dest->date = ft_strdup(src->date);
+		dest->month = ft_strdup(src->month);
+		dest->number = ft_strdup(src->number);
+		dest->hour = ft_strdup(src->hour);
 	}
 }
 

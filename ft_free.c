@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 16:40:02 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/08 13:15:12 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 07:47:18 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	ft_free_one(t_files *files, int l)
 		free(files->user);
 		free(files->group);
 		free(files->size);
-		free(files->date);
+		free(files->month);
+		free(files->number);
+		free(files->hour);
 	}
 }
 

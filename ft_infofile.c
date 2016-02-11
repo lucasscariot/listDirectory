@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:42:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/10 15:35:56 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 07:57:58 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_files	*ft_infofile(t_files *file)
 	file->user = ft_strdup(ft_get_uname(state.st_uid, &user));
 	file->group = ft_strdup(ft_get_group(state.st_gid, &group));
 	file->size = ft_itoa(state.st_size);
-	file->date = ft_print_time(&state.st_mtime);
+	ft_print_time(&state.st_mtime, file);
 	file->nb_blocks = state.st_blocks;
 	file->next = NULL;
 	return (file);

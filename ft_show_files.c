@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 08:41:44 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 06:50:37 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 07:55:37 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,18 @@ void	ft_show_l(t_files *files, t_lenmax max)
 	ft_putspace(max.user, files->user);
 	ft_putspace(max.group, files->group);
 	ft_putspace(max.size, files->size);
-	ft_putspace(max.date, files->date);
+	ft_putspace(max.month, files->month);
+	ft_putspace(max.number, files->number);
+	ft_putspace(max.hour, files->hour);
 	ft_putstr(" ");
 }
 
-void	ft_show_files(t_files *files, t_args args, t_lenmax max)
+void	ft_show_files(t_files *files, t_args args)
 {
-	t_files	*tmp;
+	t_files		*tmp;
+	t_lenmax	max;
 
+	max = ft_maxlen(files);
 	if (args.fns > 1)
 	{
 		if (args.i >= 1)
@@ -55,11 +59,13 @@ void	ft_show_files(t_files *files, t_args args, t_lenmax max)
 	}
 }
 
-void	ft_show_recursive(char *fl, t_files *files, t_args args, t_lenmax max)
+void	ft_show_recursive(char *fl, t_files *files, t_args args)
 {
 	t_files		*tmp;
 	static int	i;
+	t_lenmax	max;
 
+	max = ft_maxlen(files);
 	if (!i)
 		i = 0;
 	if (i > 0)

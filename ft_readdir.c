@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 06:50:13 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 07:17:09 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			ft_recursive(char *filename, t_args args)
 	tmp = NULL;
 	files = ft_readdirr(filename, args);
 	ft_tri_files(files, args);
-	ft_show_recursive(filename, files, args, ft_maxlen(files));
+	ft_show_recursive(filename, files, args);
 	chemin = ft_strjoin(args.link[args.i], "/");
 	tmp = ft_strjoin(filename, "/");
 	while (files != NULL)

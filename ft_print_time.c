@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 14:10:31 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/07 01:13:23 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 07:38:21 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,14 @@ char	*ft_dy(char *month, char *hour, char *year)
 	return ("shit");
 }
 
-char	*ft_print_time(time_t *time)
+char	*ft_print_time(time_t *time, t_files *file)
 {
 	char	**modif;
-	char	*date;
-	char	*tmp;
 
-	date = (char*)malloc(sizeof(char) * 13);
 	modif = ft_strsplit(ctime(time), ' ');
-	ft_strcat(date, modif[1]);
-	ft_strcat(date, "  ");
-	ft_strcat(date, modif[2]);
-	ft_strcat(date, " ");
-	tmp = ft_dy(modif[1], modif[3], modif[4]);
-	if (ft_strlen(tmp) == 4)
-		ft_strcat(date, " ");
-	ft_strcat(date, tmp);
-	return (date);
+	file->month = ft_strdup(modif[1]);
+	file->number = ft_strdup(modif[2]);
+	file->hour = ft_dy(modif[1], modif[3], modif[4]);
+	ft_free_tab(modif);
+	return (NULL);
 }
