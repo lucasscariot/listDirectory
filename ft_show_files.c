@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 08:41:44 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 07:55:37 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 08:32:24 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	ft_show_files(t_files *files, t_args args)
 	t_files		*tmp;
 	t_lenmax	max;
 
-	max = ft_maxlen(files);
 	if (args.fns > 1)
 	{
 		if (args.i >= 1)
@@ -48,7 +47,10 @@ void	ft_show_files(t_files *files, t_args args)
 		ft_putendl(":");
 	}
 	if (args.l)
+	{
+		max = ft_maxlen(files);
 		ft_count_total(files);
+	}
 	while (files != NULL)
 	{
 		if (args.l)
@@ -65,7 +67,6 @@ void	ft_show_recursive(char *fl, t_files *files, t_args args)
 	static int	i;
 	t_lenmax	max;
 
-	max = ft_maxlen(files);
 	if (!i)
 		i = 0;
 	if (i > 0)
@@ -77,7 +78,10 @@ void	ft_show_recursive(char *fl, t_files *files, t_args args)
 	while (files != NULL)
 	{
 		if (args.l)
+		{
+			max = ft_maxlen(files);
 			ft_show_l(files, max);
+		}
 		ft_putendl(files->name);
 		tmp = files;
 		files = files->next;

@@ -6,13 +6,13 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/05 14:10:31 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 07:38:21 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 08:27:29 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-char	*ft_dy(char *month, char *hour, char *year)
+int		ft_dy(char *month, char *hour, char *year)
 {
 	time_t	local;
 	char	**now;
@@ -24,10 +24,11 @@ char	*ft_dy(char *month, char *hour, char *year)
 	a = ft_mn(now[1]);
 	b = -1 * ft_mn(month) + (ft_atoi(now[4]) - ft_atoi(year)) * 12;
 	if (b + a >= 6)
-		return (ft_strndup(year, 4));
-	else
-		return (ft_strndup(hour, 5));
-	return ("shit");
+	{
+		ft_putendl("YEAR");
+		return (1);
+	}
+	return (0);
 }
 
 char	*ft_print_time(time_t *time, t_files *file)
@@ -37,7 +38,10 @@ char	*ft_print_time(time_t *time, t_files *file)
 	modif = ft_strsplit(ctime(time), ' ');
 	file->month = ft_strdup(modif[1]);
 	file->number = ft_strdup(modif[2]);
-	file->hour = ft_dy(modif[1], modif[3], modif[4]);
+	if (ft_dy(modif[1], modif[3], modif[4]))
+		file->hour = ft_strndup(modif[4], 4);
+	else
+		file->hour = ft_strndup(modif[3], 5);
 	ft_free_tab(modif);
 	return (NULL);
 }

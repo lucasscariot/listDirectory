@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:31:25 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 07:17:25 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 08:29:20 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int	main(int ac, char **av)
 	while (args.i < args.fns)
 	{
 		if (args.br)
-		{
 			ft_recursive(args.link[args.i], args);
-		}
 		else
 		{
 			files = ft_readdir(args);
