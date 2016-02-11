@@ -6,7 +6,7 @@
 #    By: lscariot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/22 09:44:59 by lscariot          #+#    #+#              #
-#    Updated: 2016/02/07 02:00:18 by lscariot         ###   ########.fr        #
+#    Updated: 2016/02/11 03:55:16 by lscariot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ FLAGS	= -Wall -Wextra -Werror $(I_DIR) $(LIBS_DIR)
 FILES	= ft_check_args.c		ft_infofile.c		ft_readdir.c		main.c \
 		  ft_show_files.c		ft_lists.c			ft_tri.c			\
 		  ft_swap_list.c		ft_free.c			ft_print_time.c		\
-		  ft_isdir.c			ft_time.c			ft_get_time.c
+		  ft_isdir.c			ft_time.c			ft_get_time.c		\
+		  ft_maxlen.c
 
 LIBS_F	= ft
 

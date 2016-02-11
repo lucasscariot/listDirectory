@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/08 11:23:50 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 06:48:39 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,24 @@ typedef struct	s_args
 	int		fns;
 }				t_args;
 
+typedef struct	s_lenmax
+{
+	int		name;
+	int		links;
+	int		user;
+	int		group;
+	int		size;
+	int		date;
+}				t_lenmax;
+
 typedef	struct	s_files
 {
 	char			*name;
-	int				namelen;
 	char			*modes;
 	char			*links;
-	int				linkslen;
 	char			*user;
-	int				userlen;
 	char			*group;
-	int				grouplen;
 	char			*size;
-	int				sizelen;
 	char			*date;
 	int				nb_blocks;
 	struct s_files	*next;
@@ -62,8 +67,8 @@ int				ft_check_args(int ac, char **av, t_args *args);
 t_files			*ft_readdir(t_args args);
 t_files			*ft_readdirr(char *filename, t_args args);
 t_files			*ft_infofile(t_files *file);
-void			ft_show_files(t_files *result, t_args args);
-void			ft_show_recursive(char *filename, t_files *result, t_args args);
+void			ft_show_files(t_files *result, t_args args, t_lenmax max);
+void			ft_show_recursive(char *fl, t_files *files, t_args args, t_lenmax max);
 t_files			*ft_list_simple_bot(t_files *files, char *filename);
 t_files			*ft_list_big_bot(t_files *files, char *file, t_args args);
 void			ft_tri_links(t_args *args);
@@ -79,6 +84,7 @@ void			ft_free_one(t_files *files, int l);
 void			ft_free_tab(char **tab);
 char			*ft_print_time(time_t *time);
 int				ft_count_total(t_files *files);
+t_lenmax		ft_maxlen(t_files *files);
 
 int				ft_mn(char *month);
 int				ft_dn(char *day);

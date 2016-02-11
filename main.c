@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:31:25 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/07 15:48:31 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/11 06:42:59 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int ac, char **av)
 {
 	t_args		args;
 	t_files		*files;
+	t_lenmax	max;
 
 	files = NULL;
 	args.i = 0;
@@ -34,7 +35,9 @@ int	main(int ac, char **av)
 				ft_tri_time(files, args);
 			else
 				ft_tri_files(files, args);
-			ft_show_files(files, args);
+			if (args.l)
+			max = ft_maxlen(files);
+			ft_show_files(files, args, max);
 			ft_free_list(files, args);
 		}
 		args.i++;
