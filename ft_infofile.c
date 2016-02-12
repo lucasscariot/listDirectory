@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:42:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 07:57:58 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/12 15:05:03 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_show_modes(int mode)
 {
 	char	*m;
 
-	m =  malloc(sizeof(char) * 11);
+	m = malloc(sizeof(char) * 11);
 	ft_m_0(&m[0], mode);
 	m[1] = (mode & S_IRUSR) ? 'r' : '-';
 	m[2] = (mode & S_IWUSR) ? 'w' : '-';
@@ -59,7 +59,7 @@ t_files	*ft_infofile(t_files *file)
 {
 	struct stat		state;
 	struct passwd	user;
-	struct group	group;
+	struct group	groupe;
 
 	lstat(file->name, &state);
 	if (!state.st_dev)
@@ -67,7 +67,7 @@ t_files	*ft_infofile(t_files *file)
 	file->modes = ft_show_modes(state.st_mode);
 	file->links = ft_itoa(state.st_nlink);
 	file->user = ft_strdup(ft_get_uname(state.st_uid, &user));
-	file->group = ft_strdup(ft_get_group(state.st_gid, &group));
+	file->group = ft_strdup(ft_get_group(state.st_gid, &groupe));
 	file->size = ft_itoa(state.st_size);
 	ft_print_time(&state.st_mtime, file);
 	file->nb_blocks = state.st_blocks;

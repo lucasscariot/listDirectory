@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 16:40:02 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 07:47:18 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/12 17:44:30 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	ft_free_tab(char **tab)
 	int	i;
 
 	i = 0;
-	//ft_putendl("free");
 	while (tab[i])
 		free(tab[i++]);
 	free(tab);

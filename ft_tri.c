@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:21:32 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 18:47:14 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/12 17:48:27 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	ft_tri_time(t_files *files, t_args args)
 {
 	t_files *nfiles;
 	t_files *base;
-	int     fail;
-	int     i;
+	int		fail;
+	int		i;
 
 	if (!files)
 		return ;
