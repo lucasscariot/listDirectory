@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/12 14:38:14 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 03:10:46 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			ft_recursive(char *filename, t_args args)
 	tmp = NULL;
 	files = ft_readdirr(filename, args);
 	ft_tri_files(files, args);
-	ft_show_recursive(filename, files, args);
+	ft_show_files(filename, files, args);
 	chemin = ft_strjoin(args.link[args.i], "/");
 	tmp = ft_strjoin(filename, "/");
 	free(chemin);
@@ -39,40 +39,11 @@ int			ft_recursive(char *filename, t_args args)
 			ft_recursive(chemin, args);
 		}
 		free(chemin);
-		files= files->next;
+		files = files->next;
 	}
 	free(tmp);
 	ft_free_list(next, args);
 	return (0);
-}
-
-t_files		*ft_readdir(t_args args)
-{
-	DIR				*folder;
-	struct dirent	*file;
-	t_files			*files;
-	char			*tmp;
-
-	files = NULL;
-	folder = opendir(args.link[args.i]);
-	if (!folder)
-		return (NULL);
-	tmp = ft_strjoin(args.link[args.i], "/");
-	while (((file = readdir(folder)) != NULL))
-	{
-		//tmp = ft_strcat(tmp, " ");
-		if (file->d_name[0] != '.' || args.a)
-		{
-			if (args.l == 1)
-				files = ft_list_big_bot(files, file->d_name, args);
-			else
-				files = ft_list_simple_bot(files, file->d_name);
-		}
-	}
-	free(tmp);
-	free(file);
-	closedir(folder);
-	return (files);
 }
 
 t_files		*ft_readdirr(char *filename, t_args args)
@@ -88,15 +59,17 @@ t_files		*ft_readdirr(char *filename, t_args args)
 		return (NULL);
 	while (((file = readdir(folder)) != NULL))
 	{
-		//tmp = ft_strjoin(args.link[args.i], files->name);
+		tmp = ft_strjoin(args.link[args.i], "/");
+		tmp = ft_strjoin(tmp, file->d_name);
 		if (file->d_name[0] != '.' || args.a)
 		{
 			if (args.l == 1)
-				files = ft_list_big_bot(files, file->d_name, args);
+				files = ft_list_big_bot(files, tmp, file->d_name);
 			else
 				files = ft_list_simple_bot(files, file->d_name);
 		}
 	}
+	free(tmp);
 	free(file);
 	closedir(folder);
 	return (files);

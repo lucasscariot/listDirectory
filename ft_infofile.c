@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:42:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/12 15:05:03 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 03:27:50 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ char	*ft_get_group(int gid, struct group *group)
 	return (group->gr_name);
 }
 
-t_files	*ft_infofile(t_files *file)
+t_files	*ft_infofile(t_files *file, char *adress)
 {
 	struct stat		state;
 	struct passwd	user;
 	struct group	groupe;
 
-	lstat(file->name, &state);
+	lstat(adress, &state);
 	if (!state.st_dev)
 		return (NULL);
 	file->modes = ft_show_modes(state.st_mode);

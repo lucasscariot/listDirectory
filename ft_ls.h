@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 07:52:40 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 01:37:35 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,10 @@ typedef	struct	s_files
 int				ft_check_args(int ac, char **av, t_args *args);
 t_files			*ft_readdir(t_args args);
 t_files			*ft_readdirr(char *filename, t_args args);
-t_files			*ft_infofile(t_files *file);
-void			ft_show_files(t_files *result, t_args args);
-void			ft_show_recursive(char *fl, t_files *files, t_args args);
+t_files			*ft_infofile(t_files *file, char *adress);
+void			ft_show_files(char *fl, t_files *files, t_args args);
 t_files			*ft_list_simple_bot(t_files *files, char *filename);
-t_files			*ft_list_big_bot(t_files *files, char *file, t_args args);
+t_files			*ft_list_big_bot(t_files *files, char *adress, char *file);
 void			ft_tri_links(t_args *args);
 void			ft_tri_files(t_files *files, t_args args);
 void			ft_tri_time(t_files *files, t_args args);
@@ -93,7 +92,6 @@ t_lenmax		ft_maxlen(t_files *files);
 int				ft_mn(char *month);
 int				ft_dn(char *day);
 int				ft_timecomp(char *time1, char *time2);
-int				ft_revtimecomp(char *time1, char *time2);
 char			*ft_get_time(char *file);
 
 #endif

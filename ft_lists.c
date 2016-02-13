@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 16:34:08 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/07 14:37:22 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 01:35:29 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,16 @@ t_files		*ft_list_simple_bot(t_files *files, char *filename)
 	return (new_file);
 }
 
-t_files		*ft_list_big_bot(t_files *files, char *file, t_args args)
+t_files		*ft_list_big_bot(t_files *files, char *adress, char *file)
 {
 	t_files *new_file;
 	t_files *tmp;
 
-	(void)args;
 	new_file = malloc(sizeof(t_files));
 	if (!new_file)
 		return (NULL);
 	new_file->name = ft_strdup(file);
-	ft_infofile(new_file);
+	ft_infofile(new_file, adress);
 	if (!files)
 	{
 		new_file->prev = NULL;

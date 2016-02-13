@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 08:41:44 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 08:32:24 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 00:49:20 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_show_l(t_files *files, t_lenmax max)
 	ft_putstr(" ");
 }
 
-void	ft_show_files(t_files *files, t_args args)
+void	ft_unsused_function(t_files *files, t_args args)
 {
 	t_files		*tmp;
 	t_lenmax	max;
@@ -61,7 +61,7 @@ void	ft_show_files(t_files *files, t_args args)
 	}
 }
 
-void	ft_show_recursive(char *fl, t_files *files, t_args args)
+void	ft_show_files(char *fl, t_files *files, t_args args)
 {
 	t_files		*tmp;
 	static int	i;
@@ -75,13 +75,15 @@ void	ft_show_recursive(char *fl, t_files *files, t_args args)
 		ft_putstr(fl);
 		ft_putendl(":");
 	}
+	if (args.l)
+	{
+		max = ft_maxlen(files);
+		ft_count_total(files);
+	}
 	while (files != NULL)
 	{
 		if (args.l)
-		{
-			max = ft_maxlen(files);
 			ft_show_l(files, max);
-		}
 		ft_putendl(files->name);
 		tmp = files;
 		files = files->next;

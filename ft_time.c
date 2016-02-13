@@ -6,33 +6,11 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:12:12 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/12 17:44:34 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 03:11:21 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-int		ft_revtimecomp(char *file1, char *file2)
-{
-	char	**t1;
-	char	**t2;
-	char	**h1;
-	char	**h2;
-	int		i;
-
-	i = 0;
-	if (ft_atoi(t1[4]) > ft_atoi(t2[4]))
-		return (1);
-	if (ft_mn(t1[1]) > ft_mn(t2[1]))
-		return (1);
-	if (ft_atoi(t1[2]) > ft_atoi(t2[2]))
-		return (1);
-	if (ft_atoi(h1[0]) > ft_atoi(h2[0]))
-		i = 1;
-	return (0);
-	ft_free_tab(t1);
-	ft_free_tab(t2);
-}
 
 int		ft_timecomp(char *file1, char *file2)
 {
@@ -87,7 +65,7 @@ int		ft_mn(char *month)
 	return (0);
 }
 
-int	ft_dn(char	*day)
+int		ft_dn(char *day)
 {
 	if (!ft_strcmp("Mon", day))
 		return (1);
