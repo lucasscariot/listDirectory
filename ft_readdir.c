@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/13 03:10:46 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 05:17:40 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ t_files		*ft_readdirr(char *filename, t_args args)
 	struct dirent	*file;
 	t_files			*files;
 	char			*tmp;
+	char			*tmp2;
 
 	files = NULL;
 	folder = opendir(filename);
@@ -60,16 +61,17 @@ t_files		*ft_readdirr(char *filename, t_args args)
 	while (((file = readdir(folder)) != NULL))
 	{
 		tmp = ft_strjoin(args.link[args.i], "/");
-		tmp = ft_strjoin(tmp, file->d_name);
+		tmp2 = ft_strjoin(tmp, file->d_name);
 		if (file->d_name[0] != '.' || args.a)
 		{
 			if (args.l == 1)
-				files = ft_list_big_bot(files, tmp, file->d_name);
+				files = ft_list_big_bot(files, tmp2, file->d_name);
 			else
 				files = ft_list_simple_bot(files, file->d_name);
 		}
+		free(tmp);
+		free(tmp2);
 	}
-	free(tmp);
 	free(file);
 	closedir(folder);
 	return (files);

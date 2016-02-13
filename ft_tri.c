@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:21:32 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/13 00:56:57 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 05:12:50 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	ft_tri_links(t_args *args)
 
 void	ft_tri_time(t_files *files, t_args args)
 {
-	t_files *nfiles;
 	t_files *base;
 	int		fail;
 	int		i;
@@ -54,33 +53,32 @@ void	ft_tri_time(t_files *files, t_args args)
 	if (!files)
 		return ;
 	base = files;
-	nfiles = files->next;
 	i = 0;
 	fail = 1;
 	while (fail > 0)
 	{
 		fail = 0;
-		while (nfiles != NULL)
+		while (files->next != NULL)
 		{
-			if (ft_timecomp(files->name, nfiles->name))
+			if (args.r && ft_revtimecomp(files->name, files->next->name))
 			{
 				fail = 1;
-				ft_swap_list(files, nfiles, args.l);
+				ft_swap_list(files, files->next, args.l);
 			}
-			nfiles = nfiles->next;
+			else if (!args.r && ft_timecomp(files->name, files->next->name))
+			{
+				fail = 1;
+				ft_swap_list(files, files->next, args.l);
+			}
 			files = files->next;
 		}
 		if (fail == 1)
-		{
-			nfiles = base->next;
 			files = base;
-		}
 	}
 }
 
 void	ft_tri_files(t_files *files, t_args args)
 {
-	t_files	*nfiles;
 	t_files	*base;
 	int		fail;
 	int		i;
@@ -88,34 +86,26 @@ void	ft_tri_files(t_files *files, t_args args)
 	if (!files)
 		return ;
 	base = files;
-	nfiles = files->next;
 	i = 0;
 	fail = 1;
 	while (fail > 0)
 	{
 		fail = 0;
-		while (nfiles != NULL)
+		while (files->next != NULL)
 		{
-			if (args.r)
-			{
-				if (ft_strcmp(files->name, nfiles->name) < 0)
-				{
-					fail = 1;
-					ft_swap_list(files, nfiles, args.l);
-				}
-			}
-			else if (ft_strcmp(files->name, nfiles->name) > 0)
+			if (args.r && ft_strcmp(files->name, files->next->name) < 0)
 			{
 				fail = 1;
-				ft_swap_list(files, nfiles, args.l);
+				ft_swap_list(files, files->next, args.l);
 			}
-			nfiles = nfiles->next;
+			else if (!args.r && ft_strcmp(files->name, files->next->name) > 0)
+			{
+				fail = 1;
+				ft_swap_list(files, files->next, args.l);
+			}
 			files = files->next;
 		}
 		if (fail == 1)
-		{
-			nfiles = base->next;
 			files = base;
-		}
 	}
 }

@@ -6,34 +6,25 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:12:12 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/13 03:11:21 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 05:13:35 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
+int		ft_revtimecomp(char *file1, char *file2)
+{
+	if (ft_get_time(file1) > ft_get_time(file2))
+		return (1);
+	return (0);
+}
+
+
 int		ft_timecomp(char *file1, char *file2)
 {
-	char	**t1;
-	char	**t2;
-	char	**h1;
-	char	**h2;
-	int		i;
-
-	i = 0;
-	t1 = ft_strsplit(ft_get_time(file1), ' ');
-	t2 = ft_strsplit(ft_get_time(file2), ' ');
-	h1 = ft_strsplit(t1[3], ':');
-	h2 = ft_strsplit(t2[3], ':');
-	if (ft_atoi(t1[4]) < ft_atoi(t2[4]))
-		i = 1;
-	else if (ft_mn(t1[1]) < ft_mn(t2[1]))
-		i = 1;
-	else if (ft_atoi(t1[2]) < ft_atoi(t2[2]))
-		i = 1;
-	ft_free_tab(t1);
-	ft_free_tab(t2);
-	return (i);
+	if (ft_get_time(file1) < ft_get_time(file2))
+		return (1);
+	return (0);
 }
 
 int		ft_mn(char *month)

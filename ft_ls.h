@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/13 01:37:35 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 04:56:18 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,12 @@ void			ft_free_tab(char **tab);
 char			*ft_print_time(time_t *time, t_files *file);
 int				ft_count_total(t_files *files);
 t_lenmax		ft_maxlen(t_files *files);
+int				ft_list_len(t_files *files);
 
 int				ft_mn(char *month);
 int				ft_dn(char *day);
 int				ft_timecomp(char *time1, char *time2);
-char			*ft_get_time(char *file);
+int				ft_revtimecomp(char *time1, char *time2);
+time_t			ft_get_time(char *file);
 
 #endif

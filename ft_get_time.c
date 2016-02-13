@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:28:36 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/07 15:09:53 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/13 04:53:57 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,25 @@ int		ft_count_total(t_files *files)
 	return (total);
 }
 
-char	*ft_get_time(char *file)
+int		ft_list_len(t_files *files)
+{
+	int	i;
+
+	i = 0;
+	while (files != NULL)
+	{
+		files = files->next;
+		i++;
+	}
+	return (i);
+}
+
+time_t	ft_get_time(char *file)
 {
 	struct stat	state;
 
 	lstat(file, &state);
 	if (!state.st_dev)
-		return (NULL);
-	return (ctime(&state.st_mtime));
+		return (0);
+	return (state.st_mtime);
 }
