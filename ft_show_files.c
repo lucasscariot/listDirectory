@@ -6,11 +6,21 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 08:41:44 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/13 00:49:20 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/18 14:32:20 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+void    ft_spaceput(int s, char *str)
+{
+	int len;
+
+	len = (s - ft_strlen(str)) + 1;
+	ft_putchar(' ');
+	ft_putstr(str);
+	ft_putnchar(' ', len);
+}
 
 void	ft_putspace(int s, char *str)
 {
@@ -25,8 +35,8 @@ void	ft_show_l(t_files *files, t_lenmax max)
 {
 	ft_putstr(files->modes);
 	ft_putspace(max.links, files->links);
-	ft_putspace(max.user, files->user);
-	ft_putspace(max.group, files->group);
+	ft_spaceput(max.user, files->user);
+	ft_spaceput(max.group - 2, files->group);
 	ft_putspace(max.size, files->size);
 	ft_putspace(max.month, files->month);
 	ft_putspace(max.number, files->number);
@@ -41,8 +51,7 @@ void	ft_unsused_function(t_files *files, t_args args)
 
 	if (args.fns > 1)
 	{
-		if (args.i >= 1)
-			ft_putchar('\n');
+		ft_putchar('\n');
 		ft_putstr(args.link[args.i]);
 		ft_putendl(":");
 	}
@@ -69,9 +78,10 @@ void	ft_show_files(char *fl, t_files *files, t_args args)
 
 	if (!i)
 		i = 0;
-	if (i > 0)
+	if (i > 0 || args.fns > 1)
 	{
-		ft_putchar('\n');
+		if (args.i >= 1 || i > 0)
+			ft_putchar('\n');
 		ft_putstr(fl);
 		ft_putendl(":");
 	}

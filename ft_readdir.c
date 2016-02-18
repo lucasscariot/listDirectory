@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/13 05:17:40 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/18 15:30:27 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int			ft_recursive(char *filename, t_args args)
 		{
 			ft_recursive(chemin, args);
 		}
+		ft_putcolor("DEBUG\n", GREEN);
 		free(chemin);
 		files = files->next;
 	}
