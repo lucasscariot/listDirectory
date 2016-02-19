@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:28:36 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/13 04:53:57 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/18 15:56:01 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ time_t	ft_get_time(char *file)
 	lstat(file, &state);
 	if (!state.st_dev)
 		return (0);
-	return (state.st_mtime);
+	return (state.st_mtimespec.tv_sec);
 }
