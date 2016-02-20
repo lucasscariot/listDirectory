@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 22:54:07 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/20 14:14:08 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/20 17:21:28 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,8 @@ void		ft_init_args(t_args *args)
 int			ft_qqchose(char *arg, t_args *args)
 {
 	int			i;
-	static int	k;
 
 	i = 1;
-	k = 0;
 	while (arg[i] != '\0')
 	{
 		if (arg[i] == 'l')
@@ -41,16 +39,10 @@ int			ft_qqchose(char *arg, t_args *args)
 			args->r = 1;
 		else if (arg[i] == 't')
 			args->t = 1;
-		else if (arg[i] == '-' && k == 1)
-		{
-			ft_error_opt(arg[i]);
-			return (0);
-		}
-		else
-		{
-			ft_error_opt(arg[i]);
+		else if (arg[i] == '-' && arg[i + 1] == '\0')
 			return (1);
-		}
+		else
+			ft_error_opt(arg[i]);
 		i++;
 	}
 	return (0);
@@ -69,7 +61,9 @@ int			ft_check_args(int ac, char **av, t_args *args)
 	while (i < ac && l)
 	{
 		if (av[i][0] == '-')
-			ft_qqchose(av[i++], args);
+		{	if (ft_qqchose(av[i++], args))
+				break;
+		}
 		else
 			l = 0;
 	}
