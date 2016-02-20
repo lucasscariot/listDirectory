@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/18 15:51:21 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/20 12:56:47 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,5 @@ int				ft_timecomp(char *time1, char *time2);
 int				ft_revtimecomp(char *time1, char *time2);
 long			ft_get_time(char *file);
 
+void			ft_error_opt(char c);
 #endif
