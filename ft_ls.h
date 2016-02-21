@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/20 18:41:02 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/21 11:08:28 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void			ft_show_files(char *fl, t_files *files, t_args args);
 t_files			*ft_list_simple_bot(t_files *files, char *filename);
 t_files			*ft_list_big_bot(t_files *files, char *adress, char *file);
 void			ft_tri_links(t_args *args);
+void			ft_error_tri(t_args *args);
 void			ft_tri_files(t_files *files, t_args args);
 void			ft_tri_time(t_files *files, t_args args);
 void			ft_swap_list(t_files *dest, t_files *src, int l);

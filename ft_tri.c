@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:21:32 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/19 14:49:24 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/21 11:34:17 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,12 @@ void	ft_tri_links(t_args *args)
 		fail = 0;
 		while (args->fns > i + 1)
 		{
-			if (args->r)
+			if (args->r && ft_strcmp(args->link[i], args->link[i + 1]) < 0)
 			{
-				if (ft_strcmp(args->link[i], args->link[i + 1]) < 0)
-				{
-					ft_strswap(&args->link[i], &args->link[i + 1]);
-					fail = 1;
-				}
+				ft_strswap(&args->link[i], &args->link[i + 1]);
+				fail = 1;
 			}
-			else if (ft_strcmp(args->link[i], args->link[i + 1]) > 0)
+			else if (!args->r && ft_strcmp(args->link[i], args->link[i + 1]) > 0)
 			{
 				ft_strswap(&args->link[i], &args->link[i + 1]);
 				fail = 1;
@@ -41,6 +38,20 @@ void	ft_tri_links(t_args *args)
 		}
 		if (fail == 1)
 			i = 0;
+	}
+	ft_error_tri(args);
+}
+
+void	ft_error_tri(t_args *args)
+{
+	int i;
+
+	i = 0;
+	while (args->fns > i)
+	{
+		if (!ft_isdir(args->link[i]))
+			ft_error_file(args->link[i]);
+		i++;
 	}
 }
 

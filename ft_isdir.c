@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/12 14:57:47 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/21 11:35:12 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 int		ft_isdir(char *filename)
 {
-	struct stat	stat;
+	DIR	*folder;
 
-	lstat(filename, &stat);
-	if (!stat.st_dev)
+	folder = opendir(filename);
+	if (!folder)
 		return (0);
-	if (S_ISDIR(stat.st_mode))
-		return (1);
-	return (0);
+	free(folder);
+	return (1);
 }
