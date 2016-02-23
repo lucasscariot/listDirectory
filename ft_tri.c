@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:21:32 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 13:41:35 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 18:45:52 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_tri_links(t_args *args)
 		if (fail == 1)
 			i = 0;
 	}
-	ft_error_tri(args);
+	//ft_error_tri(args);
 }
 
 void	ft_tri_time(t_files *files, t_args args)

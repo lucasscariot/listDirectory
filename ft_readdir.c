@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 17:57:10 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 18:47:20 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ t_files		*ft_readdirr(char *filename, t_args args)
 	char			*tmp2;
 
 	files = NULL;
-	if (!ft_isperm(filename))
+	if (!ft_isperm(filename) && ft_isdir(filename))
 		ft_error_perm(filename, args);
+	else if (!ft_isopen(filename))
+		ft_error_file(filename);
 	folder = opendir(filename);
 	if (!folder)
 		return (NULL);
