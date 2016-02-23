@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:28:36 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/18 15:56:01 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 14:05:44 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,18 @@ time_t	ft_get_time(char *file)
 	if (!state.st_dev)
 		return (0);
 	return (state.st_mtimespec.tv_sec);
+}
+
+char	*ft_readlink(char *name, char *ln)
+{
+	char	*tmp;
+	char	*tmp2;
+
+	free(name);
+	tmp = ft_strjoin(name, " -> ");
+	tmp2 = ft_strdup(tmp);
+	free(tmp);
+	tmp = ft_strjoin(tmp2, ln);
+	free(tmp2);
+	return (tmp);
 }

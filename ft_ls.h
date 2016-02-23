@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/21 11:08:28 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 14:40:38 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,14 @@ int				ft_dn(char *day);
 int				ft_timecomp(char *time1, char *time2);
 int				ft_revtimecomp(char *time1, char *time2);
 long			ft_get_time(char *file);
+void			ft_tri(t_files *files, t_args args);
+char			*ft_readlink(char *name, char *ln);
 
 void			ft_error_opt(char c);
 void			ft_error_file(char *file);
+
+void    ft_m_0(char *m, int mode);
+void    ft_m_3(char *m, int mode);
+void    ft_m_6(char *m, int mode);
+void    ft_m_9(char *m, int mode);
 #endif

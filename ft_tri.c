@@ -6,11 +6,18 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:21:32 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/21 11:34:17 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 13:41:35 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+void	ft_tri(t_files *files, t_args args)
+{
+	ft_tri_files(files, args);
+	if (args.t)
+		ft_tri_time(files, args);
+}
 
 void	ft_tri_links(t_args *args)
 {
@@ -42,19 +49,6 @@ void	ft_tri_links(t_args *args)
 	ft_error_tri(args);
 }
 
-void	ft_error_tri(t_args *args)
-{
-	int i;
-
-	i = 0;
-	while (args->fns > i)
-	{
-		if (!ft_isdir(args->link[i]))
-			ft_error_file(args->link[i]);
-		i++;
-	}
-}
-
 void	ft_tri_time(t_files *files, t_args args)
 {
 	t_files *base;
@@ -78,7 +72,8 @@ void	ft_tri_time(t_files *files, t_args args)
 				fail = 1;
 				ft_swap_list(files, files->next, args.l);
 			}
-			else if (!args.r && (rez = ft_timecomp(files->name, files->next->name)))
+			else if (!args.r
+					&& (rez = ft_timecomp(files->name, files->next->name)))
 			{
 				fail = 1;
 				ft_swap_list(files, files->next, args.l);

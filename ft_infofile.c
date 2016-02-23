@@ -6,23 +6,11 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:42:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/13 03:27:50 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 14:41:18 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-void	ft_m_0(char *m, int mode)
-{
-	if (S_ISDIR(mode))
-		*m = 'd';
-	else if (S_ISLNK(mode))
-		*m = 'l';
-	else if (S_ISCHR(mode))
-		*m = 'c';
-	else
-		*m = '-';
-}
 
 char	*ft_show_modes(int mode)
 {
@@ -32,13 +20,13 @@ char	*ft_show_modes(int mode)
 	ft_m_0(&m[0], mode);
 	m[1] = (mode & S_IRUSR) ? 'r' : '-';
 	m[2] = (mode & S_IWUSR) ? 'w' : '-';
-	m[3] = (mode & S_IXUSR) ? 'x' : '-';
+	ft_m_3(&m[3], mode);
 	m[4] = (mode & S_IRGRP) ? 'r' : '-';
 	m[5] = (mode & S_IWGRP) ? 'w' : '-';
-	m[6] = (mode & S_IXGRP) ? 'x' : '-';
+	ft_m_6(&m[6], mode);
 	m[7] = (mode & S_IROTH) ? 'r' : '-';
 	m[8] = (mode & S_IWOTH) ? 'w' : '-';
-	m[9] = (mode & S_IXOTH) ? 'x' : '-';
+	ft_m_9(&m[9], mode);
 	m[10] = '\0';
 	return (m);
 }
@@ -60,8 +48,12 @@ t_files	*ft_infofile(t_files *file, char *adress)
 	struct stat		state;
 	struct passwd	user;
 	struct group	groupe;
-
+	char			*boeuf;
+ 
+	boeuf = ft_strnew(1024);
 	lstat(adress, &state);
+	if (readlink(adress, boeuf, 1024) > 0)
+		file->name = ft_readlink(file->name, boeuf);
 	if (!state.st_dev)
 		return (NULL);
 	file->modes = ft_show_modes(state.st_mode);
@@ -72,5 +64,6 @@ t_files	*ft_infofile(t_files *file, char *adress)
 	ft_print_time(&state.st_mtime, file);
 	file->nb_blocks = state.st_blocks;
 	file->next = NULL;
+	free(boeuf);
 	return (file);
 }

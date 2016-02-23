@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/21 11:41:02 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 13:19:38 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ t_files		*ft_readdirr(char *filename, t_args args)
 	folder = opendir(filename);
 	if (!folder)
 		return (NULL);
-	//ft_putcolor(filename, RED);
 	while (((file = readdir(folder)) != NULL))
 	{
 		tmp = ft_strjoin(filename, "/");

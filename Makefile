@@ -6,7 +6,7 @@
 #    By: lscariot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/22 09:44:59 by lscariot          #+#    #+#              #
-#    Updated: 2016/02/20 12:57:43 by lscariot         ###   ########.fr        #
+#    Updated: 2016/02/23 14:41:40 by lscariot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ FILES	= ft_check_args.c		ft_infofile.c		ft_readdir.c		main.c \
 		  ft_show_files.c		ft_lists.c			ft_tri.c			\
 		  ft_swap_list.c		ft_free.c			ft_print_time.c		\
 		  ft_isdir.c			ft_time.c			ft_get_time.c		\
-		  ft_maxlen.c			ft_error.c
+		  ft_maxlen.c			ft_error.c			ft_m_x.c
 
 LIBS_F	= ft
 
