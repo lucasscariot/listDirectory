@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 22:54:07 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/20 17:21:28 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 17:55:47 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void		ft_init_args(t_args *args)
 	args->r = 0;
 	args->t = 0;
 	args->i = 0;
+	args->rec = 0;
 }
 
 int			ft_qqchose(char *arg, t_args *args)

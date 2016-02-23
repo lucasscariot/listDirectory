@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 16:54:15 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 17:55:22 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_args
 	int		i;
 	char	**link;
 	int		fns;
+	int		rec;
 }				t_args;
 
 typedef struct	s_lenmax
