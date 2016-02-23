@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 12:47:54 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 13:34:41 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 17:02:54 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ void	ft_error_file(char *file)
 	ft_putendl(": No such file or directory");
 }
 
+void	ft_error_perm(char *file, t_args args)
+{
+	if (args.fns > 1 || args.i != 0 || args.br)
+	{
+		if (args.i != 0 || args.br)
+			ft_putchar('\n');
+		ft_putstr(file);
+		ft_putendl(":");
+	}
+	ft_putstr("ft_ls: ");
+	ft_putstr(file);
+	ft_putendl(": Permission denied");
+}
+
 void    ft_error_tri(t_args *args)
 {
 	int i;
@@ -34,7 +48,9 @@ void    ft_error_tri(t_args *args)
 	i = 0;
 	while (args->fns > i)
 	{
-		if (!ft_isdir(args->link[i]))
+		//if (!ft_isperm(args->link[i]))
+		//	return ;
+		if (!ft_isopen(args->link[i]))
 			ft_error_file(args->link[i]);
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 14:40:38 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 16:54:15 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void			ft_swap_list(t_files *dest, t_files *src, int l);
 void			ft_free_files(t_files *files);
 int				ft_recursive(char *filename, t_args args);
 int				ft_isdir(char *filename);
+int				ft_isperm(char *filename);
+int				ft_isopen(char *filename);
 void			ft_free_list(t_files *files, t_args args);
 void			ft_free_args(t_args *args);
 void			ft_free_one(t_files *files, int l);
@@ -90,6 +92,7 @@ char			*ft_print_time(time_t *time, t_files *file);
 int				ft_count_total(t_files *files);
 t_lenmax		ft_maxlen(t_files *files);
 int				ft_list_len(t_files *files);
+char			*ft_show_modes(int mode);
 
 int				ft_mn(char *month);
 int				ft_dn(char *day);
@@ -98,9 +101,11 @@ int				ft_revtimecomp(char *time1, char *time2);
 long			ft_get_time(char *file);
 void			ft_tri(t_files *files, t_args args);
 char			*ft_readlink(char *name, char *ln);
+char			*ft_s(int b, int a);
 
 void			ft_error_opt(char c);
 void			ft_error_file(char *file);
+void			ft_error_perm(char *file, t_args args);
 
 void    ft_m_0(char *m, int mode);
 void    ft_m_3(char *m, int mode);

@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:42:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 14:41:18 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 16:51:13 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,10 @@ t_files	*ft_infofile(t_files *file, char *adress)
 	file->links = ft_itoa(state.st_nlink);
 	file->user = ft_strdup(ft_get_uname(state.st_uid, &user));
 	file->group = ft_strdup(ft_get_group(state.st_gid, &groupe));
-	file->size = ft_itoa(state.st_size);
+	if (file->modes[0] == 'c')
+		file->size = ft_s(major(state.st_rdev), minor(state.st_rdev));
+	else
+		file->size = ft_itoa(state.st_size);
 	ft_print_time(&state.st_mtime, file);
 	file->nb_blocks = state.st_blocks;
 	file->next = NULL;

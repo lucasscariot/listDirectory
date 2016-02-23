@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:28:36 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 14:05:44 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/23 16:53:43 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,20 @@ char	*ft_readlink(char *name, char *ln)
 	tmp = ft_strjoin(tmp2, ln);
 	free(tmp2);
 	return (tmp);
+}
+
+char	*ft_s(int b, int a)
+{
+	char	*tmp;
+	char	*tmp2;
+
+	tmp = ft_strjoin(ft_itoa(b), ", ");
+	tmp2 = ft_strdup(tmp);
+	free(tmp);
+	tmp = ft_strjoin(tmp2, ft_itoa(a));
+	free(tmp2);
+	return (tmp);
+
+
+	
 }
