@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 17:55:22 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 12:54:37 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ void			ft_swap_list(t_files *dest, t_files *src, int l);
 void			ft_free_files(t_files *files);
 int				ft_recursive(char *filename, t_args args);
 int				ft_isdir(char *filename);
-int				ft_isperm(char *filename);
 int				ft_isopen(char *filename);
+int				ft_isperm(char *filename);
+int				ft_isfile(char *filename);
 void			ft_free_list(t_files *files, t_args args);
 void			ft_free_args(t_args *args);
 void			ft_free_one(t_files *files, int l);
@@ -94,7 +95,12 @@ int				ft_count_total(t_files *files);
 t_lenmax		ft_maxlen(t_files *files);
 int				ft_list_len(t_files *files);
 char			*ft_show_modes(int mode);
+int				ft_check_errors(char *filename, t_args args);
+void			ft_one_file(char *filename, t_args args);
 
+void			ft_show_l(t_files *files, t_lenmax max);
+void			ft_putspace(int s, char	*str);
+void			ft_spaceput(int s, char	*str);
 int				ft_mn(char *month);
 int				ft_dn(char *day);
 int				ft_timecomp(char *time1, char *time2);

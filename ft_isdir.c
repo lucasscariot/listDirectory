@@ -6,11 +6,31 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 16:07:36 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 13:04:35 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
+
+int		ft_check_errors(char *filename, t_args args)
+{
+	if (ft_isfile(filename) && !ft_isdir(filename))
+	{
+		ft_one_file(filename, args);
+		return (1);
+	}
+	if (!ft_isperm(filename) && ft_isdir(filename))
+	{
+		ft_error_perm(filename, args);
+		return (1);
+	}
+	if (!ft_isopen(filename))
+	{
+		ft_error_file(filename);
+		return (1);
+	}
+	return (0);
+}
 
 int		ft_isopen(char *filename)
 {
@@ -32,6 +52,16 @@ int		ft_isdir(char *filename)
 	if (!stat.st_dev)
 		return (0);
 	if (S_ISDIR(stat.st_mode))
+		return (1);
+	return (0);
+}
+
+int     ft_isfile(char *filename)
+{
+	struct stat stat;
+
+	lstat(filename, &stat);
+	if (stat.st_dev)
 		return (1);
 	return (0);
 }
