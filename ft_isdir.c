@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 18:41:35 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 19:02:35 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int		ft_check_errors(char *filename, t_args args)
 {
-	(void)args;
 	if (!ft_isfile(filename))
 	{
 		ft_error_file(filename);
