@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 12:54:37 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:32:59 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,8 @@ void			ft_error_opt(char c);
 void			ft_error_file(char *file);
 void			ft_error_perm(char *file, t_args args);
 
-void    ft_m_0(char *m, int mode);
-void    ft_m_3(char *m, int mode);
-void    ft_m_6(char *m, int mode);
-void    ft_m_9(char *m, int mode);
+void			ft_m_0(char *m, int mode);
+void			ft_m_3(char *m, int mode);
+void			ft_m_6(char *m, int mode);
+void			ft_m_9(char *m, int mode);
 #endif

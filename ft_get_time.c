@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:28:36 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 16:53:43 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:23:03 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,4 @@ char	*ft_s(int b, int a)
 	tmp = ft_strjoin(tmp2, ft_itoa(a));
 	free(tmp2);
 	return (tmp);
-
-
-	
 }

@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 22:54:07 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 12:46:34 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:27:56 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ int			ft_check_args(int ac, char **av, t_args *args)
 	while (i < ac && l)
 	{
 		if (av[i][0] == '-')
-		{	if (ft_qqchose(av[i++], args))
-				break;
+		{
+			if (ft_qqchose(av[i++], args))
+				break ;
 		}
 		else
 			l = 0;

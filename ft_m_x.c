@@ -6,13 +6,13 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 14:06:54 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 14:40:40 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:20:34 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    ft_m_0(char *m, int mode)
+void	ft_m_0(char *m, int mode)
 {
 	if (S_ISDIR(mode))
 		*m = 'd';
@@ -38,7 +38,6 @@ void	ft_m_3(char *m, int mode)
 			*m = 'S';
 	}
 }
-
 
 void	ft_m_6(char *m, int mode)
 {

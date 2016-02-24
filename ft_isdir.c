@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 13:04:35 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:25:52 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,20 @@
 
 int		ft_check_errors(char *filename, t_args args)
 {
-	if (ft_isfile(filename) && !ft_isdir(filename))
+	(void)args;
+	if (!ft_isfile(filename))
 	{
-		ft_one_file(filename, args);
+		ft_error_file(filename);
 		return (1);
 	}
-	if (!ft_isperm(filename) && ft_isdir(filename))
+	else if (!ft_isperm(filename))
 	{
 		ft_error_perm(filename, args);
 		return (1);
 	}
-	if (!ft_isopen(filename))
+	else if (!ft_isopen(filename))
 	{
-		ft_error_file(filename);
+		ft_one_file(filename, args);
 		return (1);
 	}
 	return (0);
@@ -43,7 +44,6 @@ int		ft_isopen(char *filename)
 	return (1);
 }
 
-
 int		ft_isdir(char *filename)
 {
 	struct stat	stat;
@@ -56,16 +56,15 @@ int		ft_isdir(char *filename)
 	return (0);
 }
 
-int     ft_isfile(char *filename)
+int		ft_isfile(char *filename)
 {
-	struct stat stat;
+	struct stat state;
 
-	lstat(filename, &stat);
-	if (stat.st_dev)
+	lstat(filename, &state);
+	if (state.st_dev)
 		return (1);
 	return (0);
 }
-
 
 int		ft_isperm(char *filename)
 {

@@ -6,16 +6,16 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 12:36:09 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 13:08:21 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:27:36 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    ft_show_one(t_files *files, t_args args)
+void	ft_show_one(t_files *files, t_args args)
 {
-	t_files     *tmp;
-	t_lenmax    max;
+	t_files		*tmp;
+	t_lenmax	max;
 
 	if (files == NULL)
 		return ;
@@ -31,7 +31,7 @@ void    ft_show_one(t_files *files, t_args args)
 	}
 }
 
-void    ft_one_file(char *filename, t_args args)
+void	ft_one_file(char *filename, t_args args)
 {
 	t_files *files;
 
@@ -40,7 +40,6 @@ void    ft_one_file(char *filename, t_args args)
 		files = ft_list_big_bot(files, filename, filename);
 	else
 		files = ft_list_simple_bot(files, filename);
-
 	ft_show_one(files, args);
 	free(files);
 }

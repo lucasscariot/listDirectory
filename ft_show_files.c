@@ -6,13 +6,13 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 08:41:44 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 12:49:25 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:29:09 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void    ft_spaceput(int s, char *str)
+void	ft_spaceput(int s, char *str)
 {
 	int len;
 

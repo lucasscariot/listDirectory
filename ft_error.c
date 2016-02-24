@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 12:47:54 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 11:57:06 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:24:51 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_error_file(char *file)
 
 void	ft_error_perm(char *file, t_args args)
 {
-	if (args.fns > 1 ||  (args.br && args.rec > 0))
+	if (args.fns > 1 || (args.br && args.rec > 0))
 	{
 		if (args.i > 0 || args.rec > 0)
 			ft_putchar('\n');
@@ -41,7 +41,7 @@ void	ft_error_perm(char *file, t_args args)
 	ft_putendl(": Permission denied");
 }
 
-void    ft_error_tri(t_args *args)
+void	ft_error_tri(t_args *args)
 {
 	int i;
 

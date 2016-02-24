@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:12:12 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/18 17:12:42 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:29:55 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ int		ft_revtimecomp(char *file1, char *file2)
 		return (1);
 	return (0);
 }
-
 
 int		ft_timecomp(char *file1, char *file2)
 {

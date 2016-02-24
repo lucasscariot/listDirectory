@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:42:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/23 16:51:13 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/24 18:26:49 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_files	*ft_infofile(t_files *file, char *adress)
 	struct passwd	user;
 	struct group	groupe;
 	char			*boeuf;
- 
+
 	boeuf = ft_strnew(1024);
 	lstat(adress, &state);
 	if (readlink(adress, boeuf, 1024) > 0)
