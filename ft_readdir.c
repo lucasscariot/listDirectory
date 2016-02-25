@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/25 17:14:47 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/25 18:40:44 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,15 @@ t_files		*ft_readdirr(char *filename, t_args args)
 	files = NULL;
 	folder = opendir(filename);
 	if (!folder)
+	{
+		if (!ft_isperm(filename) && ft_isfile(filename))
+			ft_error_perm(filename, args);
+		else if (ft_isfile(filename))
+			ft_one_file(filename, args);
+		else
+			ft_error_file(filename);
 		return (NULL);
+	}
 	while (((file = readdir(folder)) != NULL))
 	{
 		tmp = ft_strjoin(filename, "/");
