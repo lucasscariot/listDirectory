@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 18:32:59 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/25 16:35:52 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int				ft_list_len(t_files *files);
 char			*ft_show_modes(int mode);
 int				ft_check_errors(char *filename, t_args args);
 void			ft_one_file(char *filename, t_args args);
+void			ft_set_vars(int *i, int *f, int *l);
 
 void			ft_show_l(t_files *files, t_lenmax max);
 void			ft_putspace(int s, char	*str);
@@ -118,4 +119,6 @@ void			ft_m_0(char *m, int mode);
 void			ft_m_3(char *m, int mode);
 void			ft_m_6(char *m, int mode);
 void			ft_m_9(char *m, int mode);
+
+void			ft_no_link(t_args *args);
 #endif

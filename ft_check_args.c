@@ -6,13 +6,13 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 22:54:07 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 18:27:56 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/25 16:42:15 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		ft_init_args(t_args *args)
+void		ft_init_args(t_args *args, int *i, int *f, int *l)
 {
 	args->l = 0;
 	args->a = 0;
@@ -21,6 +21,9 @@ void		ft_init_args(t_args *args)
 	args->t = 0;
 	args->i = 0;
 	args->rec = 0;
+	*l = 1;
+	*f = 0;
+	*i = 1;
 }
 
 int			ft_qqchose(char *arg, t_args *args)
@@ -55,10 +58,7 @@ int			ft_check_args(int ac, char **av, t_args *args)
 	int		f;
 	int		l;
 
-	i = 1;
-	l = 1;
-	f = 0;
-	ft_init_args(args);
+	ft_init_args(args, &i, &f, &l);
 	while (i < ac && l)
 	{
 		if (av[i][0] == '-')
@@ -70,11 +70,7 @@ int			ft_check_args(int ac, char **av, t_args *args)
 			l = 0;
 	}
 	if ((ac - i) == 0)
-	{
-		args->link = (char **)malloc(sizeof(char*));
-		args->link[0] = ft_strdup(".");
-		args->fns = 1;
-	}
+		ft_no_link(args);
 	else
 	{
 		args->link = (char **)malloc(sizeof(char*) * (ac - i));
