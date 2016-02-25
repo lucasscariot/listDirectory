@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 19:02:35 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/25 15:12:47 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		ft_check_errors(char *filename, t_args args)
 			ft_error_file(filename);
 		return (1);
 	}
-	else if (!ft_isopen(filename))
+	else if (!ft_isopen(filename) && !ft_isdir(filename))
 	{
 		ft_one_file(filename, args);
 		return (1);
@@ -62,10 +62,9 @@ int		ft_isfile(char *filename)
 {
 	struct stat state;
 
-	lstat(filename, &state);
-	if (state.st_dev)
-		return (1);
-	return (0);
+	if (lstat(filename, &state) == -1)
+		return (0);
+	return (1);
 }
 
 int		ft_isperm(char *filename)
