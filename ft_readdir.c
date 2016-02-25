@@ -16,7 +16,6 @@ int			ft_recursive(char *filename, t_args args)
 {
 	t_files		*files;
 	t_files		*next;
-	int			i;
 	char		*chemin;
 	char		*tmp;
 
@@ -33,7 +32,7 @@ int			ft_recursive(char *filename, t_args args)
 	while (files != NULL)
 	{
 		chemin = ft_strjoin(tmp, files->name);
-		if ((i = ft_isdir(chemin))
+		if (ft_isdir(chemin)
 				&& ft_strcmp(".", files->name)
 				&& ft_strcmp("..", files->name))
 			ft_recursive(chemin, args);
@@ -55,7 +54,7 @@ t_files		*ft_readdirr(char *filename, t_args args)
 
 	files = NULL;
 	folder = opendir(filename);
-	if (ft_check_errors(filename, args))
+	if (!folder)
 		return (NULL);
 	while (((file = readdir(folder)) != NULL))
 	{

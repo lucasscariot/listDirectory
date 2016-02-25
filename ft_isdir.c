@@ -29,6 +29,7 @@ int		ft_check_errors(char *filename, t_args args)
 	}
 	else if (!ft_isopen(filename) && !ft_isdir(filename))
 	{
+		ft_putcolor("One File", RED);
 		ft_one_file(filename, args);
 		return (1);
 	}
