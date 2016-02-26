@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 10:21:38 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 10:57:07 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct	s_lenmax
 
 typedef	struct	s_files
 {
+	int			err;
 	char			*name;
 	char			*modes;
 	char			*links;
