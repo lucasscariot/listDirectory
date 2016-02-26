@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/25 17:23:14 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/26 10:24:51 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,12 @@
 
 int		ft_check_errors(char *filename, t_args args)
 {
-	if (!ft_isfile(filename))
-	{
-		ft_error_file(filename);
-		return (1);
-	}
-	else if (!ft_isperm(filename))
-	{
-		if (ft_isdir(filename))
-			ft_error_perm(filename, args);
-		else
-			ft_error_file(filename);
-		return (1);
-	}
-	else if (!ft_isopen(filename) && !ft_isdir(filename))
-	{
-		ft_putcolor("One File", RED);
+	if (!ft_isperm(filename) && ft_isfile(filename))
+		ft_error_perm(filename, args);
+	else if (ft_isfile(filename))
 		ft_one_file(filename, args);
-		return (1);
-	}
+	else
+		ft_error_file(filename);
 	return (0);
 }
 

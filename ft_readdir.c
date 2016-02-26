@@ -6,13 +6,13 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/25 18:40:44 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/26 10:25:18 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int			ft_recursive(char *filename, t_args args)
+void			ft_recursive(char *filename, t_args args)
 {
 	t_files		*files;
 	t_files		*next;
@@ -32,16 +32,13 @@ int			ft_recursive(char *filename, t_args args)
 	while (files != NULL)
 	{
 		chemin = ft_strjoin(tmp, files->name);
-		if (ft_isdir(chemin)
-				&& ft_strcmp(".", files->name)
-				&& ft_strcmp("..", files->name))
+		if (ft_dir_recursive(chemin, files->name))
 			ft_recursive(chemin, args);
 		free(chemin);
 		files = files->next;
 	}
 	free(tmp);
 	ft_free_list(next, args);
-	return (0);
 }
 
 t_files		*ft_readdirr(char *filename, t_args args)
@@ -56,12 +53,7 @@ t_files		*ft_readdirr(char *filename, t_args args)
 	folder = opendir(filename);
 	if (!folder)
 	{
-		if (!ft_isperm(filename) && ft_isfile(filename))
-			ft_error_perm(filename, args);
-		else if (ft_isfile(filename))
-			ft_one_file(filename, args);
-		else
-			ft_error_file(filename);
+		ft_check_errors(filename, args);
 		return (NULL);
 	}
 	while (((file = readdir(folder)) != NULL))

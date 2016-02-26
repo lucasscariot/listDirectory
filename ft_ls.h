@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/25 16:35:52 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/26 10:21:38 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void			ft_tri_files(t_files *files, t_args args);
 void			ft_tri_time(t_files *files, t_args args);
 void			ft_swap_list(t_files *dest, t_files *src, int l);
 void			ft_free_files(t_files *files);
-int				ft_recursive(char *filename, t_args args);
+void				ft_recursive(char *filename, t_args args);
 int				ft_isdir(char *filename);
 int				ft_isopen(char *filename);
 int				ft_isperm(char *filename);
@@ -121,4 +121,5 @@ void			ft_m_6(char *m, int mode);
 void			ft_m_9(char *m, int mode);
 
 void			ft_no_link(t_args *args);
+int			ft_dir_recursive(char *chemin, char *filename);
 #endif
