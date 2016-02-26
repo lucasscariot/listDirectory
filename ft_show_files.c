@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 08:41:44 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 10:53:28 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 11:40:04 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_show_l(t_files *files, t_lenmax max)
 	ft_putstr(" ");
 }
 
-void	ft_show_files(char *fl, t_files *files, t_args args)
+void	ft_show_files(char *fl, t_files *files, t_args args, int err)
 {
 	t_files		*tmp;
 	static int	i;
@@ -52,7 +52,7 @@ void	ft_show_files(char *fl, t_files *files, t_args args)
 
 	if (!i)
 		i = 0;
-	if (i > 0 || args.fns > 1)
+	if ((i > 0 || args.fns > 1) &&  !err)
 	{
 		if (args.br || i > 0)
 			ft_putchar('\n');

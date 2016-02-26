@@ -6,13 +6,13 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 10:25:18 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 11:38:46 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void			ft_recursive(char *filename, t_args args)
+void			ft_recursive(char *filename, t_args args, int *err)
 {
 	t_files		*files;
 	t_files		*next;
@@ -21,9 +21,9 @@ void			ft_recursive(char *filename, t_args args)
 
 	files = NULL;
 	tmp = NULL;
-	files = ft_readdirr(filename, args);
+	files = ft_readdirr(filename, args, err);
 	ft_tri(files, args);
-	ft_show_files(filename, files, args);
+	ft_show_files(filename, files, args, *err);
 	chemin = ft_strjoin(args.link[args.i], "/");
 	tmp = ft_strjoin(filename, "/");
 	free(chemin);
@@ -33,7 +33,7 @@ void			ft_recursive(char *filename, t_args args)
 	{
 		chemin = ft_strjoin(tmp, files->name);
 		if (ft_dir_recursive(chemin, files->name))
-			ft_recursive(chemin, args);
+			ft_recursive(chemin, args, err);
 		free(chemin);
 		files = files->next;
 	}
@@ -41,7 +41,7 @@ void			ft_recursive(char *filename, t_args args)
 	ft_free_list(next, args);
 }
 
-t_files		*ft_readdirr(char *filename, t_args args)
+t_files		*ft_readdirr(char *filename, t_args args, int *err)
 {
 	DIR				*folder;
 	struct dirent	*file;
@@ -53,7 +53,7 @@ t_files		*ft_readdirr(char *filename, t_args args)
 	folder = opendir(filename);
 	if (!folder)
 	{
-		ft_check_errors(filename, args);
+		ft_check_errors(filename, args, err);
 		return (NULL);
 	}
 	while (((file = readdir(folder)) != NULL))

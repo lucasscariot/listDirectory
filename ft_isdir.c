@@ -6,20 +6,23 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 10:24:51 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 11:52:18 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		ft_check_errors(char *filename, t_args args)
+int		ft_check_errors(char *filename, t_args args, int *err)
 {
 	if (!ft_isperm(filename) && ft_isfile(filename))
+	{
+		*err = 1;
 		ft_error_perm(filename, args);
+	}
 	else if (ft_isfile(filename))
 		ft_one_file(filename, args);
 	else
-		ft_error_file(filename);
+		*err = 1;
 	return (0);
 }
 
@@ -63,6 +66,10 @@ int		ft_isperm(char *filename)
 	lstat(filename, &perm);
 	tmp = ft_show_modes(perm.st_mode);
 	if (tmp[1] != 'r')
+	{
+		free(tmp);
 		return (0);
+	}
+	free(tmp);
 	return (1);
 }

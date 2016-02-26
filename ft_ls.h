@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 10:57:07 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 11:39:06 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ typedef struct	s_lenmax
 
 typedef	struct	s_files
 {
-	int			err;
 	char			*name;
 	char			*modes;
 	char			*links;
@@ -70,10 +69,9 @@ typedef	struct	s_files
 }				t_files;
 
 int				ft_check_args(int ac, char **av, t_args *args);
-t_files			*ft_readdir(t_args args);
-t_files			*ft_readdirr(char *filename, t_args args);
+t_files			*ft_readdirr(char *filename, t_args args, int *err);
 t_files			*ft_infofile(t_files *file, char *adress);
-void			ft_show_files(char *fl, t_files *files, t_args args);
+void			ft_show_files(char *fl, t_files *files, t_args args, int err);
 t_files			*ft_list_simple_bot(t_files *files, char *filename);
 t_files			*ft_list_big_bot(t_files *files, char *adress, char *file);
 void			ft_tri_links(t_args *args);
@@ -82,7 +80,7 @@ void			ft_tri_files(t_files *files, t_args args);
 void			ft_tri_time(t_files *files, t_args args);
 void			ft_swap_list(t_files *dest, t_files *src, int l);
 void			ft_free_files(t_files *files);
-void				ft_recursive(char *filename, t_args args);
+void				ft_recursive(char *filename, t_args args, int *err);
 int				ft_isdir(char *filename);
 int				ft_isopen(char *filename);
 int				ft_isperm(char *filename);
@@ -96,7 +94,7 @@ int				ft_count_total(t_files *files);
 t_lenmax		ft_maxlen(t_files *files);
 int				ft_list_len(t_files *files);
 char			*ft_show_modes(int mode);
-int				ft_check_errors(char *filename, t_args args);
+int				ft_check_errors(char *filename, t_args args, int *err);
 void			ft_one_file(char *filename, t_args args);
 void			ft_set_vars(int *i, int *f, int *l);
 

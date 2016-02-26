@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:21:32 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 10:50:44 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 11:54:04 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ void	ft_tri_links(t_args *args)
 				fail = 1;
 			}
 			else if (!args->r
-					&& ft_strcmp(args->link[i], args->link[i + 1]) > 0
-					&& ft_isopen(args->link[i]))
+					&& ft_strcmp(args->link[i], args->link[i + 1]) > 0)
 			{
 				ft_strswap(&args->link[i], &args->link[i + 1]);
 				fail = 1;
@@ -48,6 +47,7 @@ void	ft_tri_links(t_args *args)
 		if (fail == 1)
 			i = 0;
 	}
+	ft_error_tri(args);
 }
 
 void	ft_tri_time(t_files *files, t_args args)
