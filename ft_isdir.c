@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 13:20:59 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/26 21:15:44 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_check_errors(char *filename, t_args args, int *err)
 {
-	if (!ft_isperm(filename) && ft_isfile(filename))
+	if (!ft_isperm(filename) && ft_isdir(filename))
 	{
 		*err = 1;
 		ft_error_perm(filename, args);
@@ -36,7 +36,7 @@ int		ft_isopen(char *filename)
 	folder = opendir(filename);
 	if (!folder)
 		return (0);
-	free(folder);
+	closedir(folder);
 	return (1);
 }
 

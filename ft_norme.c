@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:18:04 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 14:34:16 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/26 21:04:06 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void		ft_file_name_norme(char *fl, t_args args, int *i, int err)
 {
 	if (!i)
 		*i = 0;
-	if (*i > 0 && (args.fns > 1 || args.br) && !err)
+	if ((args.fns > 1 || args.br) && !err)
 	{
-		if (args.br || *i > 0)
+		if (*i > 0)
 			ft_putchar('\n');
 		ft_putstr(fl);
 		ft_putendl(":");
