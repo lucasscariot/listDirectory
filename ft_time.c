@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:12:12 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 17:11:21 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/26 20:50:47 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ int		ft_timecomp(char *file1, char *file2)
 {
 	if (ft_get_time(file1) < ft_get_time(file2))
 		return (1);
-	else if (ft_get_time(file1) == ft_get_time(file2)
-			&& ft_strcmp(file1, file2) < 0)
-		return (1);
+	else if (ft_get_time(file1) == ft_get_time(file2))
+		return (0);
 	return (0);
 }
 
