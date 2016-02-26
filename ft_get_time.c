@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:28:36 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/24 18:23:03 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/26 18:27:20 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,12 @@ time_t	ft_get_time(char *file)
 	struct stat	state;
 
 	lstat(file, &state);
-	if (!state.st_dev)
+	if (!state.st_mtime)
+	{
+		ft_putcolor("FAIL LIEN", RED);
 		return (0);
-	return (state.st_mtimespec.tv_sec);
+	}
+	return (state.st_mtime);
 }
 
 char	*ft_readlink(char *name, char *ln)
