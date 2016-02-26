@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:31:25 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 11:38:37 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 13:27:06 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	t_args		args;
 	t_files		*files;
-	int		err;
+	int			err;
 
 	files = NULL;
 	args.i = 0;

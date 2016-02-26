@@ -6,13 +6,13 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:02:06 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 11:38:46 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 13:51:31 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void			ft_recursive(char *filename, t_args args, int *err)
+void		ft_recursive(char *filename, t_args args, int *err)
 {
 	t_files		*files;
 	t_files		*next;
@@ -46,8 +46,6 @@ t_files		*ft_readdirr(char *filename, t_args args, int *err)
 	DIR				*folder;
 	struct dirent	*file;
 	t_files			*files;
-	char			*tmp;
-	char			*tmp2;
 
 	files = NULL;
 	folder = opendir(filename);
@@ -58,17 +56,7 @@ t_files		*ft_readdirr(char *filename, t_args args, int *err)
 	}
 	while (((file = readdir(folder)) != NULL))
 	{
-		tmp = ft_strjoin(filename, "/");
-		tmp2 = ft_strjoin(tmp, file->d_name);
-		if (file->d_name[0] != '.' || args.a)
-		{
-			if (args.l == 1)
-				files = ft_list_big_bot(files, tmp2, file->d_name);
-			else
-				files = ft_list_simple_bot(files, file->d_name);
-		}
-		free(tmp);
-		free(tmp2);
+		files = ft_norme_read(filename, file->d_name, files, args);
 	}
 	free(file);
 	closedir(folder);

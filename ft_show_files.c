@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 08:41:44 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 11:40:04 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 14:08:16 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,7 @@ void	ft_show_files(char *fl, t_files *files, t_args args, int err)
 	static int	i;
 	t_lenmax	max;
 
-	if (!i)
-		i = 0;
-	if ((i > 0 || args.fns > 1) &&  !err)
-	{
-		if (args.br || i > 0)
-			ft_putchar('\n');
-		ft_putstr(fl);
-		ft_putendl(":");
-	}
+	ft_file_name_norme(fl, args, &i, err);
 	i++;
 	if (files == NULL)
 		return ;

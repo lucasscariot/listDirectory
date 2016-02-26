@@ -6,23 +6,55 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:18:04 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 10:16:01 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 14:34:16 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_no_link(t_args *args)
+void		ft_no_link(t_args *args)
 {
 	args->link = (char **)malloc(sizeof(char*));
 	args->link[0] = ft_strdup(".");
 	args->fns = 1;
 }
 
-int	ft_dir_recursive(char *chemin, char *filename)
+int			ft_dir_recursive(char *chemin, char *filename)
 {
 	if (ft_isdir(chemin) && ft_strcmp("..", filename)
-		&& ft_strcmp(".", filename))
+			&& ft_strcmp(".", filename))
 		return (1);
 	return (0);
+}
+
+t_files		*ft_norme_read(char *fname, char *n, t_files *files, t_args args)
+{
+	char	*tmp;
+	char	*tmp2;
+
+	tmp = ft_strjoin(fname, "/");
+	tmp2 = ft_strjoin(tmp, n);
+	if (n[0] != '.' || args.a)
+	{
+		if (args.l == 1)
+			files = ft_list_big_bot(files, tmp2, n);
+		else
+			files = ft_list_simple_bot(files, n);
+	}
+	free(tmp);
+	free(tmp2);
+	return (files);
+}
+
+void		ft_file_name_norme(char *fl, t_args args, int *i, int err)
+{
+	if (!i)
+		*i = 0;
+	if (*i > 0 && (args.fns > 1 || args.br) && !err)
+	{
+		if (args.br || *i > 0)
+			ft_putchar('\n');
+		ft_putstr(fl);
+		ft_putendl(":");
+	}
 }

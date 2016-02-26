@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 12:05:09 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/11 07:47:50 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/26 14:17:23 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ void	ft_swap_cpy(t_files *dest, t_files *src, int l)
 	}
 }
 
-void	ft_swap_list(t_files *f, t_files *s, int l)
+void	ft_swap_list(t_files *f, t_files *s, int l, int *fail)
 {
 	t_files	*tmp;
 
+	*fail = 1;
 	if (!f && !s)
 		return ;
 	tmp = (t_files*)malloc(sizeof(t_files));

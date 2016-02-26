@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/20 12:47:54 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 11:53:50 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 13:25:38 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_error_tri(t_args *args)
 	i = 0;
 	while (args->fns > i)
 	{
-		if (!ft_isopen(args->link[i]))
+		if (!ft_isopen(args->link[i]) && !ft_isfile(args->link[i]))
 			ft_error_file(args->link[i]);
 		i++;
 	}

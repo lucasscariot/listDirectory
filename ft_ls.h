@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 11:39:06 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 14:20:30 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,9 +78,9 @@ void			ft_tri_links(t_args *args);
 void			ft_error_tri(t_args *args);
 void			ft_tri_files(t_files *files, t_args args);
 void			ft_tri_time(t_files *files, t_args args);
-void			ft_swap_list(t_files *dest, t_files *src, int l);
+void			ft_swap_list(t_files *dest, t_files *src, int l, int *fail);
 void			ft_free_files(t_files *files);
-void				ft_recursive(char *filename, t_args args, int *err);
+void			ft_recursive(char *filename, t_args args, int *err);
 int				ft_isdir(char *filename);
 int				ft_isopen(char *filename);
 int				ft_isperm(char *filename);
@@ -97,6 +97,8 @@ char			*ft_show_modes(int mode);
 int				ft_check_errors(char *filename, t_args args, int *err);
 void			ft_one_file(char *filename, t_args args);
 void			ft_set_vars(int *i, int *f, int *l);
+t_files			*ft_norme_read(char *fname, char *n, t_files *fes, t_args a);
+void			ft_file_name_norme(char *fl, t_args args, int *i, int err);
 
 void			ft_show_l(t_files *files, t_lenmax max);
 void			ft_putspace(int s, char	*str);
@@ -120,5 +122,5 @@ void			ft_m_6(char *m, int mode);
 void			ft_m_9(char *m, int mode);
 
 void			ft_no_link(t_args *args);
-int			ft_dir_recursive(char *chemin, char *filename);
+int				ft_dir_recursive(char *chemin, char *filename);
 #endif

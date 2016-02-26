@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/06 10:41:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 11:52:18 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/26 13:20:59 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ int		ft_check_errors(char *filename, t_args args, int *err)
 		ft_error_perm(filename, args);
 	}
 	else if (ft_isfile(filename))
+	{
+		*err = 1;
 		ft_one_file(filename, args);
+	}
 	else
 		*err = 1;
 	return (0);
