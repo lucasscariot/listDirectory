@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 10:30:45 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 11:22:49 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct	s_lenmax
 typedef	struct	s_files
 {
 	char			*name;
+	char			*time;
 	char			*modes;
 	char			*links;
 	char			*user;
@@ -65,7 +66,6 @@ typedef	struct	s_files
 	char			*hour;
 	int				nb_blocks;
 	struct s_files	*next;
-	struct s_files	*prev;
 }				t_files;
 
 int				ft_check_args(int ac, char **av, t_args *args);
@@ -106,7 +106,7 @@ void			ft_spaceput(int s, char	*str);
 int				ft_mn(char *month);
 int				ft_dn(char *day);
 int				ft_timecomp(char *link, char *time1, char *time2);
-int				ft_revtimecomp(char *time1, char *time2);
+int				ft_rtp(char *link, char *time1, char *time2);
 long			ft_get_time(char *file);
 long			ft_get_utime(char *file);
 void			ft_tri(t_files *files, t_args args);

@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:21:32 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 10:20:41 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 11:22:31 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,12 @@ void	ft_tri_time(t_files *files, t_args args)
 		fail = 0;
 		while (files->next != NULL)
 		{
-			if (args.r && ft_revtimecomp(files->name, files->next->name))
-			{
-				fail = 1;
+			if (args.r
+				&& (ft_rtp(args.link[args.i], files->time, files->next->time)))
 				ft_swap_list(files, files->next, args.l, &fail);
-			}
 			else if (!args.r
-				&& (ft_timecomp(args.link[args.i], files->name, files->next->name)))
-			{
-				fail = 1;
+				&& (ft_timecomp(args.link[args.i], files->time, files->next->time)))
 				ft_swap_list(files, files->next, args.l, &fail);
-			}
 			files = files->next;
 		}
 		if (fail == 1)

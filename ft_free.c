@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/02 16:40:02 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/12 17:44:30 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/27 11:16:10 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_free_one(t_files *files, int l)
 	free(files->name);
 	if (l)
 	{
+		free(files->time);
 		free(files->modes);
 		free(files->links);
 		free(files->user);
