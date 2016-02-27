@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 00:28:36 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 18:27:20 by lscariot         ###   ########.fr       */
+/*   Updated: 2016/02/27 10:44:11 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ time_t	ft_get_time(char *file)
 
 	lstat(file, &state);
 	if (!state.st_mtime)
-	{
-		ft_putcolor("FAIL LIEN", RED);
 		return (0);
-	}
 	return (state.st_mtime);
 }
 

@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:12:12 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 20:50:47 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 10:45:31 by lucas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,26 @@ int		ft_revtimecomp(char *file1, char *file2)
 	return (0);
 }
 
-int		ft_timecomp(char *file1, char *file2)
+int		ft_timecomp(char *link, char *file1, char *file2)
 {
-	if (ft_get_time(file1) < ft_get_time(file2))
-		return (1);
-	else if (ft_get_time(file1) == ft_get_time(file2))
-		return (0);
-	return (0);
+	char	*tmp;
+	char	*tmp2;
+	char	*tmp3;
+	int	i;
+
+	i = 0;
+	tmp = ft_strjoin(link, "/");
+	tmp2 = ft_strjoin(tmp, file1);
+	tmp3 = ft_strjoin(tmp, file2);
+	if (ft_get_time(tmp2) < ft_get_time(tmp3))
+		i = 1;
+	else if (ft_get_time(tmp2) == ft_get_time(tmp3)
+		&& ft_get_utime(tmp2) < ft_get_utime(tmp3))
+		i = 1;
+	free(tmp);
+	free(tmp2);
+	free(tmp3);
+	return (i);
 }
 
 int		ft_mn(char *month)
