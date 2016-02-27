@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/29 17:21:32 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 11:22:31 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 12:13:50 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	ft_tri_time(t_files *files, t_args args)
 				&& (ft_rtp(args.link[args.i], files->time, files->next->time)))
 				ft_swap_list(files, files->next, args.l, &fail);
 			else if (!args.r
-				&& (ft_timecomp(args.link[args.i], files->time, files->next->time)))
+				&& (ft_tcp(args.link[args.i], files->time, files->next->time)))
 				ft_swap_list(files, files->next, args.l, &fail);
 			files = files->next;
 		}

@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/26 08:41:44 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/26 21:05:19 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 12:05:51 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,4 @@ void	ft_show_files(char *fl, t_files *files, t_args args, int err)
 		tmp = files;
 		files = files->next;
 	}
-	//if (args.i + 1 < args.fns && !args.br)
-	//	ft_putchar('\n');
 }

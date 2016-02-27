@@ -6,18 +6,18 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/07 01:12:12 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 11:23:40 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 12:14:08 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int     ft_rtp(char *link, char *file1, char *file2)
+int		ft_rtp(char *link, char *file1, char *file2)
 {
-	char    *tmp;
-	char    *tmp2;
-	char    *tmp3;
-	int i;
+	char	*tmp;
+	char	*tmp2;
+	char	*tmp3;
+	int		i;
 
 	i = 0;
 	tmp = ft_strjoin(link, "/");
@@ -31,12 +31,12 @@ int     ft_rtp(char *link, char *file1, char *file2)
 	return (i);
 }
 
-int		ft_timecomp(char *link, char *file1, char *file2)
+int		ft_tcp(char *link, char *file1, char *file2)
 {
 	char	*tmp;
 	char	*tmp2;
 	char	*tmp3;
-	int	i;
+	int		i;
 
 	i = 0;
 	tmp = ft_strjoin(link, "/");

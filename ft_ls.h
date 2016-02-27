@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 01:32:28 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 11:22:49 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 12:13:46 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <stdio.h>
-# define SPACE 2
 
 typedef struct	s_args
 {
@@ -105,10 +104,9 @@ void			ft_putspace(int s, char	*str);
 void			ft_spaceput(int s, char	*str);
 int				ft_mn(char *month);
 int				ft_dn(char *day);
-int				ft_timecomp(char *link, char *time1, char *time2);
+int				ft_tcp(char *link, char *time1, char *time2);
 int				ft_rtp(char *link, char *time1, char *time2);
 long			ft_get_time(char *file);
-long			ft_get_utime(char *file);
 void			ft_tri(t_files *files, t_args args);
 char			*ft_readlink(char *name, char *ln);
 char			*ft_s(int b, int a);

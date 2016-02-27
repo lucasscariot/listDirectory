@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/25 15:18:04 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 10:44:44 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 12:05:34 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,4 @@ void		ft_file_name_norme(char *fl, t_args args, int *i, int err)
 		ft_putstr(fl);
 		ft_putendl(":");
 	}
-}
-
-time_t  ft_get_utime(char *file)
-{
-	struct stat state;
-
-	lstat(file, &state);
-	if (!state.st_mtime)
-		return (0);
-	return (state.st_mtimespec.tv_nsec);
 }
