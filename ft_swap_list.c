@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/31 12:05:09 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 11:15:38 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 12:25:50 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	ft_swap_cpy(t_files *dest, t_files *src, int l)
 {
 	dest->name = ft_strdup(src->name);
+	dest->time = ft_strdup(src->time);
 	if (l)
 	{
-		dest->time = ft_strdup(src->time);
 		dest->modes = ft_strdup(src->modes);
 		dest->links = ft_strdup(src->links);
 		dest->user = ft_strdup(src->user);

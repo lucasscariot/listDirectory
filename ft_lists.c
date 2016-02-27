@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/28 16:34:08 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 11:14:38 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 12:40:19 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_files		*ft_list_big_bot(t_files *files, char *adress, char *file)
 	if (!new_file)
 		return (NULL);
 	new_file->name = ft_strdup(file);
+	new_file->time = ft_strdup(file);
 	ft_infofile(new_file, adress);
 	if (!files)
 		return (new_file);

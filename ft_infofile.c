@@ -6,7 +6,7 @@
 /*   By: lscariot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 05:42:05 by lscariot          #+#    #+#             */
-/*   Updated: 2016/02/27 11:13:07 by lucas            ###   ########.fr       */
+/*   Updated: 2016/02/27 12:25:10 by lscariot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ t_files	*ft_infofile(t_files *file, char *adress)
 
 	boeuf = ft_strnew(1024);
 	lstat(adress, &state);
-	file->time = ft_strdup(file->name);
 	if (readlink(adress, boeuf, 1024) > 0)
 		file->name = ft_readlink(file->name, boeuf);
 	if (!state.st_dev)
